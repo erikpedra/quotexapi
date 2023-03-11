@@ -15,7 +15,7 @@ def nested_dict(n, type):
         return defaultdict(lambda: nested_dict(n - 1, type))
 
 class Quotex:
-    __version__ = "1.3"
+    __version__ = '2.1'
     def __init__(self, set_ssid):
         self.size = [1, 5, 10, 15, 30, 60, 120, 300, 600, 900, 1800,
                     3600, 7200, 14400, 28800, 43200, 86400, 604800, 2592000]
