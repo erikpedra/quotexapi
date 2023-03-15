@@ -87,9 +87,10 @@ class Quotex:
       """ Get signal Quotex server""""
         pass
       
-    def get_payment(self)
+    def get_payment(self):
         """ payment Quotex server""""
         pass
+    
     def check_user_data(self):
         laravel_session = self.api.response_cookies['laravel_session']
         cookies_dict = {
