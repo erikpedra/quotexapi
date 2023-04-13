@@ -10,16 +10,15 @@ Expert Option     : https://www.youtube.com/channel/UCCqnm8XHUoc0Ude78RJwmoA
 ### Import
 ```python
 from quotexapi.stable_api import Quotex
-```
+```Login
 
-### Login by ssid
+### Support Login !
 if connect sucess return True,None  
 
 if connect fail return False,None  
 ```python
 from quotexapi.stable_api import Quotex
-ssid="""42["authorization",{"session":"0psCurV1ZiFDheOPZbsuPnCscxtZh7veewewqewqewq","isDemo":0}]"""
-account=Quotex(set_ssid=ssid)
+account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
 check_connect,message=account.connect()
 print(check_connect,message)
 ```
@@ -27,8 +26,7 @@ print(check_connect,message)
 
 ```python
 from quotexapi.stable_api import Quotex
-ssid="""42["authorization",{"session":"0psCurV1ZiFDheOPZbsuPnCscxtZh7veewewqewqewq","isDemo":0}]"""
-account=Quotex(set_ssid=ssid)
+account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
 check_connect,message=account.connect()
 if check_connect:
     account.change_balance("PRACTICE")#"REAL"
@@ -40,8 +38,7 @@ if check_connect:
 
 ```python
 from quotexapi.stable_api import Quotex
-ssid="""42["authorization",{"session":"0psCurV1ZiFDheOPZbsuPnCscxtZh7veewewqewqewq","isDemo":0}]"""
-account=Quotex(set_ssid=ssid)
+account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
 check_connect,message=account.connect()
 account.change_balance("PRACTICE")#"REAL"
 if check_connect:
