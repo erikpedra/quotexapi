@@ -1,4 +1,4 @@
-"""Module for IQ option websocket."""
+"""Module for Quotex websocket."""
 
 import simplejson as json
 import logging
