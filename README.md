@@ -32,7 +32,7 @@ if message == "PIN-code":
     code_pin = input("Disable PIN-code from account settings: ")
     check_connect, message = api.connect_2fa(code_pin)
 
-    print('##### Segunda tentativa #####')
+    print('##### second try #####')
     print('Status :', check_connect)
     print('Message :', message)
     print("Email :", account.email)
