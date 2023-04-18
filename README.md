@@ -40,6 +40,47 @@ if message == "PIN-code":
 print("Balance:", account.get_balance())
 print("##############################")
 ```
+### Get Balance
+
+```python
+from quotexapi.stable_api import Quotex
+account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
+check_connect,message=account.connect()
+account.change_balance("PRACTICE")
+balance=account.get_balance()
+print(balance)
+account.close()
+```
+
+### Get Balance V2
+
+```python
+from quotexapi.stable_api import Quotex
+account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
+check_connect,message=account.connect()
+account.change_balance("PRACTICE")
+balance=account.get_balance_v2()
+print(balance)
+account.close()
+```
+
+### Buy
+
+```python
+from quotexapi.stable_api import Quotex
+account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
+check,message=account.connect()
+if check:
+    account.change_balance("PRACTICE")
+    asset="EURUSD"
+    amount=1
+    dir="call"#"call"/"put"
+    duration=60#sec
+    print(account.buy(asset,amount,dir,duration))
+    account.close()
+```
+
+
 ### Check_win & buy sample
 
 ```python
@@ -52,14 +93,3 @@ if check_connect:
     print(API.check_win(id))
 ```
 
-### Buy Multi
-
-```python
-from quotexapi.stable_api import Quotex
-account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
-check_connect,message=account.connect()
-account.change_balance("PRACTICE")#"REAL"
-if check_connect:
-    account.change_balance("PRACTICE")#"REAL"
-    API.buy_multi("AUDCAD_otc", "14000", "put", "60" , 5) #5 trade
-```
