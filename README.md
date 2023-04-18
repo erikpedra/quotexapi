@@ -27,7 +27,7 @@ print(check_connect,message)
 from quotexapi.stable_api import Quotex
 account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
 check_connect,message=account.connect()
-if check_connect == "PIN-code":
+if message == "PIN-code":
     print('##### PIN-code enabled #####')
     code_pin = input("Disable PIN-code from account settings: ")
     check_connect, message = api.connect_2fa(code_pin)
