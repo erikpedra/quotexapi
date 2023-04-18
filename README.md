@@ -15,12 +15,30 @@ from quotexapi.stable_api import Quotex
 ### Support Login !
 if connect sucess return True,None  
 
-if connect fail return False,None  
+if connect fail return False,reason  
 ```python
 from quotexapi.stable_api import Quotex
 account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
 check_connect,message=account.connect()
 print(check_connect,message)
+```
+### Login by pass PIN-Code !
+```python
+from quotexapi.stable_api import Quotex
+account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
+check_connect,message=account.connect()
+if check_connect == "PIN-code":
+    print('##### PIN-code enabled #####')
+    code_pin = input("Disable PIN-code from account settings: ")
+    check_connect, message = api.connect_2fa(code_pin)
+
+    print('##### Segunda tentativa #####')
+    print('Status :', check_connect)
+    print('Message :', message)
+    print("Email :", account.email)
+    
+print("Balance:", account.get_balance())
+print("##############################")
 ```
 ### Check_win & buy sample
 
