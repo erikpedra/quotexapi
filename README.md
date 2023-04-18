@@ -27,6 +27,7 @@ print(check_connect,message)
 from quotexapi.stable_api import Quotex
 account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
 check_connect,message=account.connect()
+account.change_balance("PRACTICE")
 if message == "PIN-code":
     print('##### PIN-code enabled #####')
     code_pin = input("Disable PIN-code from account settings: ")
@@ -37,8 +38,9 @@ if message == "PIN-code":
     print('Message :', message)
     print("Email :", account.email)
     
-print("Balance:", account.get_balance())
-print("##############################")
+if check_connect:
+    print("Balance:", account.get_balance())
+    print("##############################")
 ```
 ### Get Balance
 
