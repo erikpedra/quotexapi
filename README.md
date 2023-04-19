@@ -31,18 +31,18 @@ API.change_balance("PRACTICE")
 if message == "PIN-code":
     print('##### PIN-code enabled #####')
     code_pin = input("Disable PIN-code from account settings: ")
-    check_connect, message = API.connect_2fa(code_pin)
+    check_connect, message = account.connect_2fa(code_pin)
 
     print('##### second try #####')
     print('Status :', check_connect)
     print('Message :', message)
-    print("Email :", API.email)
+    print("Email :", account.email)
     account.close()
 
 if check_connect == True:
     print('Status :', check_connect)
     print('Message :', message)
-    print("Email :", API.email)
+    print("Email :", account.email)
     print("Balance:", account.get_balance())
     print("Balance:", account.get_balance_v2())
     account.close()
@@ -50,7 +50,7 @@ else:
     print('########## Invalid email or password ')
     print('Status :', check_connect)
     print('Message :', message)
-    print("Email :", API.email)
+    print("Email :", account.email)
     account.close()
     
 ```
