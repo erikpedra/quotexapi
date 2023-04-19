@@ -27,31 +27,31 @@ print(check_connect,message)
 from quotexapi.stable_api import Quotex
 account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
 check_connect,message=API.connect()
-    API.change_balance("PRACTICE")
-    if message == "PIN-code":
-        print('##### PIN-code enabled #####')
-        code_pin = input("Disable PIN-code from account settings: ")
-        check_connect, message = API.connect_2fa(code_pin)
+API.change_balance("PRACTICE")
+if message == "PIN-code":
+    print('##### PIN-code enabled #####')
+    code_pin = input("Disable PIN-code from account settings: ")
+    check_connect, message = API.connect_2fa(code_pin)
 
-        print('##### second try #####')
-        print('Status :', check_connect)
-        print('Message :', message)
-        print("Email :", API.email)
-        account.close()
-    
-    if check_connect == True:
-        print('Status :', check_connect)
-        print('Message :', message)
-        print("Email :", API.email)
-        print("Balance:", account.get_balance())
-        print("Balance:", account.get_balance_v2())
-        account.close()
-    else:
-        print('########## Invalid email or password ')
-        print('Status :', check_connect)
-        print('Message :', message)
-        print("Email :", API.email)
-        account.close()
+    print('##### second try #####')
+    print('Status :', check_connect)
+    print('Message :', message)
+    print("Email :", API.email)
+    account.close()
+
+if check_connect == True:
+    print('Status :', check_connect)
+    print('Message :', message)
+    print("Email :", API.email)
+    print("Balance:", account.get_balance())
+    print("Balance:", account.get_balance_v2())
+    account.close()
+else:
+    print('########## Invalid email or password ')
+    print('Status :', check_connect)
+    print('Message :', message)
+    print("Email :", API.email)
+    account.close()
     
 ```
 ### Get Balance
@@ -134,5 +134,34 @@ if check_connect:
     a=account.get_candle_v2("AUDCAD_otc",60)
     for c in a:
         print(c)
+    account.close()
+```
+
+
+### Get payment
+```python
+asset="AUDCAD_otc"
+account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
+check_connect,message=account.connect()
+print(check_connect,message)
+if check_connect:
+    print("\n\n------get")
+    a=account.get_payment()
+    for data in a:
+        print(data)
+    account.close()
+```
+
+### Check Asset open
+```python
+asset="AUDCAD_otc"
+account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
+check_connect,message=account.connect()
+print(check_connect,message)
+if check_connect: 
+    print("\n\n------get")
+    a=account.check_asset_open()
+    for data in a:
+        print(data)
     account.close()
 ```
