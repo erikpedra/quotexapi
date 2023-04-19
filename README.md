@@ -137,6 +137,24 @@ if check_connect:
     account.close()
 ```
 
+### GET realtime candle
+```python
+asset="AUDCAD_otc"
+account=Quotex(host="broker-qx.com",email="user@gmail.com", password="pwd")
+check_connect,message=account.connect()
+print(check_connect,message)
+if check_connect: 
+    list_size=10#this is setting how much Quote you want to save
+    account.start_candles_stream(asset,list_size)
+    while True:
+        if len(account.get_realtime_candlesasset))==list_size:
+            break
+    print(account.get_realtime_candles(asset))
+
+    API.close()
+
+```
+
 
 ### Get payment
 ```python
